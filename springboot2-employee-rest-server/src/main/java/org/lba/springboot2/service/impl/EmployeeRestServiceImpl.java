@@ -1,6 +1,7 @@
 package org.lba.springboot2.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.lba.springboot2.db.model.Employee;
 import org.lba.springboot2.db.repository.EmployeeRepository;
@@ -17,8 +18,8 @@ public class EmployeeRestServiceImpl implements EmployeeService {
 	//C
 	@Override
 	public Employee saveEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return null;
+		Employee savedEmployee = employeeRepository.save(employee);
+		return savedEmployee;
 	}
 	
 	//R
@@ -29,9 +30,9 @@ public class EmployeeRestServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Employee> findById(Long id) {
+	
+		return employeeRepository.findById(id);
 	}
 	
 	//U

@@ -1,6 +1,7 @@
 package org.lba.springboot2.controller.rest.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.lba.springboot2.controller.rest.EmployeeController;
@@ -24,8 +25,8 @@ public class EmployeeRestControllerImpl implements EmployeeController {
 	//C
 	@Override
 	public Employee saveEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return null;
+		Employee savedEmployee = employeeService.saveEmployee(employee);
+		return savedEmployee;
 	}
 	//R
 	@Override
@@ -37,8 +38,13 @@ public class EmployeeRestControllerImpl implements EmployeeController {
 	@Override
 	@GetMapping("/{id}")
 	public Employee findById(@PathVariable Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		 Optional<Employee> employee = employeeService.findById(id);
+		 if (!employee.isPresent()) {
+	            logger.error("Id " + id + " is not existed");
+		 }
+		 
+		return employee.get();
 	}
 	
 	//U
