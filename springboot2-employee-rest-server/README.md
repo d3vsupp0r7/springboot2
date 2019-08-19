@@ -13,7 +13,7 @@
 
 # Scope
 
-This is a Springboot 1.x CRUD example, based on employee management domain.
+This is a Springboot 2.x CRUD example, based on employee management domain.
 
 # Prerequisite
 * Java version 1.8
