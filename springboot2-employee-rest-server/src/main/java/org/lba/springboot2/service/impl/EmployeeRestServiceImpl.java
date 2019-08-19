@@ -3,6 +3,7 @@ package org.lba.springboot2.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.lba.springboot2.db.model.Employee;
 import org.lba.springboot2.db.repository.EmployeeRepository;
 import org.lba.springboot2.service.EmployeeService;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeRestServiceImpl implements EmployeeService {
+	
+	static final Logger logger = Logger.getLogger(EmployeeRestServiceImpl.class);
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -46,8 +49,12 @@ public class EmployeeRestServiceImpl implements EmployeeService {
 	//D
 	@Override
 	public void deleteEmployeeById(long id) {
-		// TODO Auto-generated method stub
 		
+		 if (!employeeRepository.findById(id).isPresent()) {
+	            logger.error("Id " + id + " is not existed");
+		 }
+
+		employeeRepository.deleteById(id);
 	}
 
 }
