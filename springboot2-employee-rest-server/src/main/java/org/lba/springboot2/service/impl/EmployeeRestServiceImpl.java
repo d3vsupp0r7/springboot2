@@ -14,10 +14,39 @@ public class EmployeeRestServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	//C
+	@Override
+	public Employee saveEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//R
 	@Override
 	public List<Employee> findAll() {
 		
 		return employeeRepository.findAll();
+	}
+
+	@Override
+	public Employee findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//U
+
+	@Override
+	public Employee updateEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	//D
+	@Override
+	public void deleteEmployeeById(long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

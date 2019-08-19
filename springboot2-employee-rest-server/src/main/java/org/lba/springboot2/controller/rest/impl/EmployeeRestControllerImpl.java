@@ -21,7 +21,13 @@ public class EmployeeRestControllerImpl implements EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
-
+	//C
+	@Override
+	public Employee saveEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	//R
 	@Override
 	@GetMapping("/all")
 	public List<Employee> findAll() {
@@ -34,9 +40,19 @@ public class EmployeeRestControllerImpl implements EmployeeController {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	//U
+	@Override
+	public Employee updateEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//D
+	@Override
+	public void deleteEmployeeById(long id) {
+		// TODO Auto-generated method stub
 
-
-
-
+	}
 
 }
