@@ -16,7 +16,7 @@ public interface EmployeeService {
 	public Optional<Employee> findById(Long id);
 	
 	//U
-	public Employee updateEmployee(Employee employee);
+	public Employee updateEmployee(Long id, Employee employee);
 	
 	//D
 	public void deleteEmployeeById(long id);

@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeRestServiceImpl implements EmployeeService {
-	
+
 	static final Logger logger = Logger.getLogger(EmployeeRestServiceImpl.class);
-	
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
@@ -24,35 +24,44 @@ public class EmployeeRestServiceImpl implements EmployeeService {
 		Employee savedEmployee = employeeRepository.save(employee);
 		return savedEmployee;
 	}
-	
+
 	//R
 	@Override
 	public List<Employee> findAll() {
-		
+
 		return employeeRepository.findAll();
 	}
 
 	@Override
 	public Optional<Employee> findById(Long id) {
-	
+
 		return employeeRepository.findById(id);
 	}
-	
+
 	//U
 
 	@Override
-	public Employee updateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return null;
+	public Employee updateEmployee(Long id, Employee employee) {
+		
+		Optional<Employee> result = employeeRepository.findById(id);
+		
+		if (!result.isPresent()) {
+			logger.error("Id " + id + " is not existed");
+		}
+		
+		int status = employeeRepository.updateEmplyeeById(employee.getName(), employee.getSurname(),  result.get().getId() );
+		logger.debug("Update status: " + status);
+		
+		return employeeRepository.findById(id).get();
 	}
 
 	//D
 	@Override
 	public void deleteEmployeeById(long id) {
-		
-		 if (!employeeRepository.findById(id).isPresent()) {
-	            logger.error("Id " + id + " is not existed");
-		 }
+
+		if (!employeeRepository.findById(id).isPresent()) {
+			logger.error("Id " + id + " is not existed");
+		}
 
 		employeeRepository.deleteById(id);
 	}

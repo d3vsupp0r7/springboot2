@@ -16,7 +16,7 @@ public interface EmployeeController {
 	public Employee findById(Long id);
 
 	//U
-	public Employee updateEmployee(Employee employee);
+	public Employee updateEmployeeById(Long id, Employee employee);
 
 	//D
 	public void deleteEmployeeById(long id);
