@@ -45,10 +45,18 @@
 				</select>
 			</div>
 
+			<!-- Checkbox -->
+			<div class="form-group">
+				<label for="internal" th:text="#{lbl.internal}"></label>
+				<input type="checkbox" th:field="*{internal}" />
+			</div>
+
 			<!-- TextArea -->
 			<div class="form-group">
 				<label for="additionalNotes" th:text="#{lbl.additionalNotes}"></label>
-				<textarea class="form-control" name="additionalNotes" th:field="*{additionalNotes}" placeholder="Add addtional notes here..."></textarea>
+				<textarea class="form-control" name="additionalNotes"
+					th:field="*{additionalNotes}"
+					placeholder="Add addtional notes here..."></textarea>
 			</div>
 
 			<button type="submit" class="btn btn-success"

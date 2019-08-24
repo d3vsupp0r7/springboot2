@@ -16,11 +16,11 @@ public class EmployeeForm implements Serializable{
 	/*RadioButton*/
 	private String gender;
 	
-	/*Single CheckBox */
-	private boolean internal;
-	
 	/*Select Box mapping*/
 	private Long countryId;
+	
+	/*Single CheckBox */
+	private boolean internal;
 	
 	/* TextArea mapping */
 	private String additionalNotes;
