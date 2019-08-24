@@ -14,7 +14,7 @@ public class EmployeeForm implements Serializable{
 	private String surname;
 	
 	/*RadioButton*/
-	private String geneder;
+	private String gender;
 	
 	/*Single CheckBox */
 	private boolean internal;
@@ -45,12 +45,12 @@ public class EmployeeForm implements Serializable{
 		this.surname = surname;
 	}
 
-	public String getGeneder() {
-		return geneder;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setGeneder(String geneder) {
-		this.geneder = geneder;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public boolean isInternal() {
@@ -79,7 +79,7 @@ public class EmployeeForm implements Serializable{
 
 	@Override
 	public String toString() {
-		return "EmployeeForm [name=" + name + ", surname=" + surname + ", geneder=" + geneder + ", internal=" + internal
+		return "EmployeeForm [name=" + name + ", surname=" + surname + ", gender=" + gender + ", internal=" + internal
 				+ ", countryId=" + countryId + ", additionalNotes=" + additionalNotes + "]";
 	}
 	

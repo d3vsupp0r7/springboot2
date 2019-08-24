@@ -28,6 +28,13 @@
 					type="text" th:field="*{surname}" />
 			</div>
 			
+			<!-- Gender -->
+			<div class="form-group">
+				<label for="gender" th:text="#{lbl.gender}"></label><br>
+				<input type="radio" th:field="*{gender}" value="Male"/><label th:text="#{lbl.gender.male}">M</label>
+				<input type="radio" th:field="*{gender}" value="Female"/><label th:text="#{lbl.gender.female}">F</label> 
+			</div>
+			
 			<!-- Country -->
 			<div class="form-group">
 				<label for="country" th:text="#{lbl.country}"></label>
