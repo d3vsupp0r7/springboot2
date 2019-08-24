@@ -12,6 +12,7 @@ import org.lba.springboot2.controller.ui.form.EmployeeForm;
 import org.lba.springboot2.controller.ui.form.Qualification;
 import org.lba.springboot2.controller.ui.form.Technology;
 import org.lba.springboot2.service.EmployeeService;
+import org.lba.springboot2.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 @Controller
 public class EmployeeUIControllerImpl implements EmployeeControllerUI {
@@ -54,6 +59,7 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 	public String submitForm( @ModelAttribute("employee") @Valid EmployeeForm employeeForm, BindingResult bindingResult, Model model ) {
 
 		logger.debug("Form: " + employeeForm.toString());
+		JsonUtil.getJsonFormat(employeeForm);
 
 		if (bindingResult.hasErrors()) {
 			return "employeeForm";
@@ -63,6 +69,9 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 
 		return "employeeList";
 	}
+
+
+	
 
 	//R
 	@GetMapping("/all")

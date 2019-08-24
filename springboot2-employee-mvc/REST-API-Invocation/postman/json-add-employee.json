@@ -1,0 +1,10 @@
+{
+  "name" : "aName",
+  "surname" : "aSurname",
+  "gender" : "Male",
+  "countryId" : 1,
+  "technologiesMultipleSelect" : [ "1", "2", "6" ],
+  "internal" : true,
+  "multiCheckboxQualificationValues" : [ "Agile", "Scrum Master", "Product Owner" ],
+  "additionalNotes" : "textarea"
+}
