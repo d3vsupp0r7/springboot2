@@ -1,6 +1,7 @@
 package org.lba.springboot2.controller.ui.form;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class EmployeeForm implements Serializable{
 
@@ -22,11 +23,21 @@ public class EmployeeForm implements Serializable{
 	/*Single CheckBox */
 	private boolean internal;
 	
+	private String[] multiCheckboxSelectedValues;
+	
 	/* TextArea mapping */
 	private String additionalNotes;
 	
 	public EmployeeForm() {
 		// Implement if necessary
+	}
+
+	public String[] getMultiCheckboxSelectedValues() {
+		return multiCheckboxSelectedValues;
+	}
+
+	public void setMultiCheckboxSelectedValues(String[] multiCheckboxSelectedValues) {
+		this.multiCheckboxSelectedValues = multiCheckboxSelectedValues;
 	}
 
 	public String getName() {
@@ -79,9 +90,12 @@ public class EmployeeForm implements Serializable{
 
 	@Override
 	public String toString() {
-		return "EmployeeForm [name=" + name + ", surname=" + surname + ", gender=" + gender + ", internal=" + internal
-				+ ", countryId=" + countryId + ", additionalNotes=" + additionalNotes + "]";
+		return "EmployeeForm [name=" + name + ", surname=" + surname + ", gender=" + gender + ", countryId=" + countryId
+				+ ", internal=" + internal + ", multiCheckboxSelectedValues="
+				+ Arrays.toString(multiCheckboxSelectedValues) + ", additionalNotes=" + additionalNotes + "]";
 	}
+
+	
 	
 	
 }

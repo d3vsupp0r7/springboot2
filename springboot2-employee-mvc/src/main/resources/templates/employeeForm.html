@@ -47,8 +47,26 @@
 
 			<!-- Checkbox -->
 			<div class="form-group">
-				<label for="internal" th:text="#{lbl.internal}"></label>
-				<input type="checkbox" th:field="*{internal}" />
+				<label for="internal" th:text="#{lbl.internal}"></label> <input
+					type="checkbox" th:field="*{internal}" />
+			</div>
+
+			<!-- MultipleCheckBoxex -->
+			<div class="form-group">
+
+			<label for="multiCheckboxSelectedValues" th:text="#{lbl.multipleCheckboxes}"></label>
+
+			<li th:each="country : ${countries}">
+				
+				<label th:for="${country.countryName}"
+				th:text="${country.countryName}">Country name</label> 
+				
+				<input type="checkbox"
+				th:id="${country.countryName}" 
+				th:name="${country.countryName}"
+				th:value="${country.countryName}"
+				th:field="*{multiCheckboxSelectedValues}"
+				 /></li>
 			</div>
 
 			<!-- TextArea -->
