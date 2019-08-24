@@ -45,6 +45,18 @@
 				</select>
 			</div>
 
+			<!-- MultipleSelect -->
+			<div class="form-group">
+				<select id="multiSelectElementsSelected"
+					name="multiSelectElementsSelected" multiple="multiple"
+					th:field="*{countries}">
+
+					<option
+						th:each="country,row : ${countries}"
+						th:value="${country.countryId}" th:text="${country.countryName}"></option>
+				</select>
+			</div>
+
 			<!-- Checkbox -->
 			<div class="form-group">
 				<label for="internal" th:text="#{lbl.internal}"></label> <input
@@ -54,19 +66,14 @@
 			<!-- MultipleCheckBoxex -->
 			<div class="form-group">
 
-			<label for="multiCheckboxSelectedValues" th:text="#{lbl.multipleCheckboxes}"></label>
+				<label for="multiCheckboxSelectedValues"
+					th:text="#{lbl.multipleCheckboxes}"></label>
 
-			<li th:each="country : ${countries}">
-				
-				<label th:for="${country.countryName}"
-				th:text="${country.countryName}">Country name</label> 
-				
-				<input type="checkbox"
-				th:id="${country.countryName}" 
-				th:name="${country.countryName}"
-				th:value="${country.countryName}"
-				th:field="*{multiCheckboxSelectedValues}"
-				 /></li>
+				<li th:each="country : ${countries}"><label
+					th:for="${country.countryName}" th:text="${country.countryName}">Country
+						name</label> <input type="checkbox" th:id="${country.countryName}"
+					th:name="${country.countryName}" th:value="${country.countryName}"
+					th:field="*{multiCheckboxSelectedValues}" /></li>
 			</div>
 
 			<!-- TextArea -->
