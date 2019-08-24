@@ -2,6 +2,8 @@ package org.lba.springboot2.controller.ui.impl;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
+import org.lba.springboot2.controller.rest.impl.EmployeeRestControllerImpl;
 import org.lba.springboot2.controller.ui.EmployeeControllerUI;
 import org.lba.springboot2.controller.ui.form.EmployeeForm;
 import org.lba.springboot2.service.EmployeeService;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 
+	static final Logger logger = Logger.getLogger(EmployeeUIControllerImpl.class); 
+	
 	@Autowired
 	private EmployeeService employeeService;
 	
@@ -30,9 +34,13 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 	@PostMapping("/submit")
 	public String submitForm( @ModelAttribute("employee") @Valid EmployeeForm employeeForm, BindingResult bindingResult, Model model ) {
 
+		logger.debug("Form: " + employeeForm.toString());
+		
 		if (bindingResult.hasErrors()) {
 			return "employeeForm";
 		}
+		
+		
 
 		return "employeeList";
 	}

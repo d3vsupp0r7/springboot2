@@ -76,5 +76,12 @@ public class EmployeeForm implements Serializable{
 	public void setAdditionalNotes(String additionalNotes) {
 		this.additionalNotes = additionalNotes;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeForm [name=" + name + ", surname=" + surname + ", geneder=" + geneder + ", internal=" + internal
+				+ ", countryId=" + countryId + ", additionalNotes=" + additionalNotes + "]";
+	}
+	
 	
 }

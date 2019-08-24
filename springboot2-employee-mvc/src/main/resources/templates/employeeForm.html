@@ -1,21 +1,31 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Add Employee</title>
+<title>Add Employee</title>
 
-    <div th:replace="fragments/header :: header-css"/>
+<div th:replace="fragments/header :: header-css" />
 
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"/>
+	<div th:replace="fragments/header :: header" />
 
-<div class="container">
+	<div class="container">
 
-</div>
-<!-- /.container -->
+		<form id="addEmplyeeForm" method="POST" th:action="@{/submit}"
+			th:object="${employee}">
+			<div class="form-group">
+				<label for="name" th:text="#{lbl.name}"></label> <input class="form-component"
+					type="text" th:field="*{name}" />
+			</div>
 
-<div th:replace="fragments/footer :: footer"/>
+			<button type="submit" class="btn btn-success">Save</button>
+			<a href='#' class="btn btn-default">Cancel</a>
+		</form>
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="fragments/footer :: footer" />
 
 </body>
 </html>
