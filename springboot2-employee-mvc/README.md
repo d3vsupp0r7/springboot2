@@ -31,7 +31,6 @@ This is a Springboot 2.x CRUD example, based on employee management domain.
 
 #### Find all
 
-http://localhost:8080/employee/all
 
 # Running Test
 *TO_DO*
