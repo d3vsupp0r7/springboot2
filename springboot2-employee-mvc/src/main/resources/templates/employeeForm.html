@@ -20,7 +20,7 @@
 					class="form-component" type="text" th:field="*{name}" />
 			</div>
 
-			<!-- Surame -->
+			<!-- Surname -->
 			<div class="form-group">
 				<label for="surname" th:text="#{lbl.surname}"></label> <input
 					class="form-component" type="text" th:field="*{surname}" />
@@ -47,33 +47,37 @@
 
 			<!-- MultipleSelect -->
 			<div class="form-group">
-				<select id="multiSelectElementsSelected"
-					name="multiSelectElementsSelected" multiple="multiple"
-					th:field="*{countries}">
+				<select id="technologiesMultipleSelect"
+					name="technologiesMultipleSelect" multiple="multiple"
+					th:field="*{technologiesMultipleSelect}">
 
 					<option
-						th:each="country,row : ${countries}"
-						th:value="${country.countryId}" th:text="${country.countryName}"></option>
+						th:each="technology,row : ${technologies}"
+						th:value="${technology.technologyId}" th:text="${technology.technologyName}"></option>
 				</select>
 			</div>
 
 			<!-- Checkbox -->
 			<div class="form-group">
-				<label for="internal" th:text="#{lbl.internal}"></label> <input
-					type="checkbox" th:field="*{internal}" />
+				<label for="internal" th:text="#{lbl.internal}"></label> 
+				<input type="checkbox" th:field="*{internal}" />
 			</div>
 
 			<!-- MultipleCheckBoxex -->
 			<div class="form-group">
 
-				<label for="multiCheckboxSelectedValues"
-					th:text="#{lbl.multipleCheckboxes}"></label>
+				<label for="multiCheckboxQualificationValues"
+					th:text="#{lbl.multipleCheckboxesQualifications}"></label>
 
-				<li th:each="country : ${countries}"><label
-					th:for="${country.countryName}" th:text="${country.countryName}">Country
-						name</label> <input type="checkbox" th:id="${country.countryName}"
-					th:name="${country.countryName}" th:value="${country.countryName}"
-					th:field="*{multiCheckboxSelectedValues}" /></li>
+				<li th:each="qualification : ${qualifications}">
+					<label
+						th:for="${qualification.qualificationName}" th:text="${qualification.qualificationName}">Qualification
+						name</label> 
+					
+					<input type="checkbox" th:id="${qualification.qualificationName}"
+					th:name="${qualification.qualificationName}" th:value="${qualification.qualificationName}"
+					th:field="*{multiCheckboxQualificationValues}" />
+				</li>
 			</div>
 
 			<!-- TextArea -->
@@ -86,7 +90,7 @@
 
 			<button type="submit" class="btn btn-success"
 				th:text="#{btn.lbl.save}"></button>
-			<a href='#' class="btn btn-default">Cancel</a>
+			<a href='#' class="btn btn-default" th:text="#{btn.lbl.cancel}"></a> 
 		</form>
 	</div>
 	<!-- /.container -->

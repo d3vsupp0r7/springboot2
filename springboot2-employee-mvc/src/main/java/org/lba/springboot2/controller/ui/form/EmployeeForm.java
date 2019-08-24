@@ -21,12 +21,12 @@ public class EmployeeForm implements Serializable{
 	/*Select Box mapping*/
 	private Long countryId;
 	
-	private List<String> countries;
+	private List<String> technologiesMultipleSelect;
 	
 	/*Single CheckBox */
 	private boolean internal;
 	
-	private String[] multiCheckboxSelectedValues;
+	private String[] multiCheckboxQualificationValues;
 	
 	/* TextArea mapping */
 	private String additionalNotes;
@@ -35,12 +35,12 @@ public class EmployeeForm implements Serializable{
 		// Implement if necessary
 	}
 
-	public String[] getMultiCheckboxSelectedValues() {
-		return multiCheckboxSelectedValues;
+	public String[] getMultiCheckboxQualificationValues() {
+		return multiCheckboxQualificationValues;
 	}
 
-	public void setMultiCheckboxSelectedValues(String[] multiCheckboxSelectedValues) {
-		this.multiCheckboxSelectedValues = multiCheckboxSelectedValues;
+	public void setMultiCheckboxQualificationValues(String[] multiCheckboxQualificationValues) {
+		this.multiCheckboxQualificationValues = multiCheckboxQualificationValues;
 	}
 
 	public String getName() {
@@ -91,19 +91,19 @@ public class EmployeeForm implements Serializable{
 		this.additionalNotes = additionalNotes;
 	}
 	
-	public List<String> getCountries() {
-		return countries;
+	public List<String> getTechnologiesMultipleSelect() {
+		return technologiesMultipleSelect;
 	}
 
-	public void setCountries(List<String> countries) {
-		this.countries = countries;
+	public void setTechnologiesMultipleSelect(List<String> countries) {
+		this.technologiesMultipleSelect = countries;
 	}
 
 	@Override
 	public String toString() {
 		return "EmployeeForm [name=" + name + ", surname=" + surname + ", gender=" + gender + ", countryId=" + countryId
-				+ ", countries=" + countries + ", internal=" + internal + ", multiCheckboxSelectedValues="
-				+ Arrays.toString(multiCheckboxSelectedValues) + ", additionalNotes=" + additionalNotes + "]";
+				+ ", technologiesMultipleSelect=" + technologiesMultipleSelect + ", internal=" + internal + ", multiCheckboxQualificationValues="
+				+ Arrays.toString(multiCheckboxQualificationValues) + ", additionalNotes=" + additionalNotes + "]";
 	}
 	
 	
