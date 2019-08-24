@@ -16,37 +16,43 @@
 			th:object="${employee}">
 			<!-- Name -->
 			<div class="form-group">
-				<label for="name" th:text="#{lbl.name}"></label>
-				<input class="form-component"
-					type="text" th:field="*{name}" />
-			</div>
-			
-			<!-- Surame -->
-			<div class="form-group">
-				<label for="surname" th:text="#{lbl.surname}"></label>
-				 <input class="form-component"
-					type="text" th:field="*{surname}" />
-			</div>
-			
-			<!-- Gender -->
-			<div class="form-group">
-				<label for="gender" th:text="#{lbl.gender}"></label><br>
-				<input type="radio" th:field="*{gender}" value="Male"/><label th:text="#{lbl.gender.male}">M</label>
-				<input type="radio" th:field="*{gender}" value="Female"/><label th:text="#{lbl.gender.female}">F</label> 
-			</div>
-			
-			<!-- Country -->
-			<div class="form-group">
-				<label for="country" th:text="#{lbl.country}"></label>
-				<select th:field="*{countryId}">
-                         <option value=""> Please select a country </option>
-                         <option th:each="country : ${countries}"
-                            th:value="${country.countryId}"
-                            th:utext="${country.countryName}"/>
-                            </select>
+				<label for="name" th:text="#{lbl.name}"></label> <input
+					class="form-component" type="text" th:field="*{name}" />
 			</div>
 
-			<button type="submit" class="btn btn-success">Save</button>
+			<!-- Surame -->
+			<div class="form-group">
+				<label for="surname" th:text="#{lbl.surname}"></label> <input
+					class="form-component" type="text" th:field="*{surname}" />
+			</div>
+
+			<!-- Gender -->
+			<div class="form-group">
+				<label for="gender" th:text="#{lbl.gender}"></label><br> <input
+					type="radio" th:field="*{gender}" value="Male" /><label
+					th:text="#{lbl.gender.male}">M</label> <input type="radio"
+					th:field="*{gender}" value="Female" /><label
+					th:text="#{lbl.gender.female}">F</label>
+			</div>
+
+			<!-- Country -->
+			<div class="form-group">
+				<label for="country" th:text="#{lbl.country}"></label> <select
+					th:field="*{countryId}">
+					<option value="">Please select a country</option>
+					<option th:each="country : ${countries}"
+						th:value="${country.countryId}" th:utext="${country.countryName}" />
+				</select>
+			</div>
+
+			<!-- TextArea -->
+			<div class="form-group">
+				<label for="additionalNotes" th:text="#{lbl.additionalNotes}"></label>
+				<textarea class="form-control" name="additionalNotes" th:field="*{additionalNotes}" placeholder="Add addtional notes here..."></textarea>
+			</div>
+
+			<button type="submit" class="btn btn-success"
+				th:text="#{btn.lbl.save}"></button>
 			<a href='#' class="btn btn-default">Cancel</a>
 		</form>
 	</div>
