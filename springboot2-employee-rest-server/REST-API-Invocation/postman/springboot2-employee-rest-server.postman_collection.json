@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "e65ad571-f835-4e8d-b3e0-9da1c3b55080",
+		"name": "springboot2-employee-rest-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - findAllEmployees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/10001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - createEmployee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"EmployeeName_fromCreate\",\r\n    \"surname\": \"EmployeeSurname_fromCreate\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - deleteEmployeeById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/10004",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"10004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - updateEmployeeById",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"EmployeeName_fromUpdate_1\",\r\n    \"surname\": \"EmployeeSurname_fromUpdate_1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee/10001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - RE - findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080//employee-re/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"",
+						"employee-re",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - RE - findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080//employee-re/10001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"",
+						"employee-re",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - RE - findById - Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080//employee-re/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"",
+						"employee-re",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - RE - createEmployee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"RE_EmployeeName_fromCreate\",\r\n    \"surname\": \"RE_EmployeeSurname_fromCreate\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee-re",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee-re"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - RE - updateEmplyeeById",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"RE_EmployeeName_fromUpdate_1\",\r\n    \"surname\": \"RE_EmployeeSurname_fromUpdate_1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee-re/10001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee-re",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - RE - updateEmplyeeById - Error",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"RE_EmployeeName_fromUpdate_1\",\r\n    \"surname\": \"RE_EmployeeSurname_fromUpdate_1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee-re/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee-re",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - RE - deleteEmplyeeById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee-re/10004",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee-re",
+						"10004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - RE - deleteEmployeeById - Error",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee-re/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee-re",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
