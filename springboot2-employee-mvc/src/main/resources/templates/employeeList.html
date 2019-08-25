@@ -1,21 +1,53 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>List Employees</title>
+<title>List Employees</title>
 
-    <div th:replace="fragments/header :: header-css"/>
-
+<div th:replace="fragments/header :: header-css" />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"/>
+	<div th:replace="fragments/header :: header" />
 
-<div class="container">
+	<div class="container">
 
+ 	<div th:switch="${employees}" class="container my-5">
+		<!--  -->
+		<div class="col-md-10">
+			<h2 th:case="null">No Employees found</h2>
+			<div th:case="*">
+				<table class="table table-striped table-responsive-md">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Surname</th>
+							<!-- Buttons -->
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="employee : ${employees}">
+							<td th:text="${employee.name}"></td>
+							<td th:text="${employee.surname}"></td>
+							
+							<td><a th:href="@{/employee-ui/edit/{id}(id=${employee.id})}"
+								class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+							<td><a th:href="@{/employee-ui/delete/{id}(id=${employee.id})}"
+								class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div><!--  -->
 </div>
-<!-- /.container -->
 
-<div th:replace="fragments/footer :: footer"/>
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="fragments/footer :: footer" />
 
 </body>
 </html>
