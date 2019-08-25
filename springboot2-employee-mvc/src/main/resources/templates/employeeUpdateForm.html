@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Update Employee</title>
+
+<div th:replace="fragments/header :: header-css" />
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<div class="container">
+
+		<form id="updateEmplyeeForm" method="POST" th:action="@{/employee-ui/update/{id}(id=${employee.id})}"
+			th:object="${employee}">
+			<!-- Name -->
+			<div class="form-group">
+				<label for="name" th:text="#{lbl.name}"></label> <input
+					class="form-component" type="text" th:field="*{name}" />
+			</div>
+
+			<!-- Surname -->
+			<div class="form-group">
+				<label for="surname" th:text="#{lbl.surname}"></label> <input
+					class="form-component" type="text" th:field="*{surname}" />
+			</div>
+
+			<button type="submit" class="btn btn-success"
+				th:text="#{btn.lbl.save}"></button>
+			<a href='#' class="btn btn-default" th:text="#{btn.lbl.cancel}"></a> 
+		</form>
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="fragments/footer :: footer" />
+
+</body>
+</html>

@@ -2,6 +2,7 @@ package org.lba.springboot2.controller.ui.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -11,6 +12,7 @@ import org.lba.springboot2.controller.ui.form.Country;
 import org.lba.springboot2.controller.ui.form.EmployeeForm;
 import org.lba.springboot2.controller.ui.form.Qualification;
 import org.lba.springboot2.controller.ui.form.Technology;
+import org.lba.springboot2.db.model.Employee;
 import org.lba.springboot2.service.EmployeeService;
 import org.lba.springboot2.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/employee-ui")
 public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 
 	static final Logger logger = Logger.getLogger(EmployeeUIControllerImpl.class); 
@@ -45,7 +50,7 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 		/**/
 		List<Technology> technologyList = this.getTechnologies();
 		model.addAttribute("technologies", technologyList);
-		
+
 
 		return "employeeForm";
 	}
@@ -63,19 +68,60 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 
 
 
-		return "employeeList";
+		return "redirect:all";
 	}
 
 
-	
+
 
 	//R
 	@GetMapping("/all")
 	public String listEmployees(Model model) {
 
+		List<Employee> employeeList = employeeService.findAll();
+
+		model.addAttribute("employees", employeeList);
+
 		return "employeeList";
 	}
 
+	//U
+	@GetMapping("edit/{id}")
+	public String showUpdateForm(@PathVariable("id") long id, Model model) {
+
+		logger.debug("Update Form for employee with id: " + id);
+
+		Optional<Employee> employee = employeeService.findById(id);
+
+		if(employee.get()!=null) {
+			model.addAttribute("employee", employee.get());
+		}
+
+
+		return "employeeUpdateForm";
+	}
+
+	@PostMapping("update/{id}")
+	public String updateEmployee(@PathVariable("id") long id, @Valid Employee employee, BindingResult result,
+			Model model) {
+
+		logger.debug("Update for employee with id: " + id);
+		logger.debug("Update submit Form: " + employee.toString());
+
+		return "redirect:/employee-ui/all";
+	}
+
+	//D
+	@GetMapping("delete/{id}")
+	public String deleteEmployee(@PathVariable("id") long id, Model model) {
+
+		logger.debug("Delete Employee with id: " + id);
+		
+		employeeService.deleteEmployeeById(id);
+		
+		
+		return "redirect:/employee-ui/all";
+	}
 	//Utils
 	private List<Country> getCountries() {
 
@@ -101,11 +147,11 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 		toReturn.add(new Qualification(4L, "AG", "Agile"));
 		toReturn.add(new Qualification(5L, "SM", "Scrum Master"));
 		toReturn.add(new Qualification(6L, "PO", "Product Owner"));
-		
+
 
 		return toReturn;
 	}
-	
+
 	private List<Technology> getTechnologies() {
 
 		List<Technology> toReturn = new ArrayList<>();
@@ -116,7 +162,7 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 		toReturn.add(new Technology(4L, "PHP", "PHP"));
 		toReturn.add(new Technology(5L, "Android", "Android"));
 		toReturn.add(new Technology(6L, "IOS", "Swift"));
-		
+
 
 		return toReturn;
 	}
