@@ -107,6 +107,14 @@ public class EmployeeUIControllerImpl implements EmployeeControllerUI {
 
 		logger.debug("Update for employee with id: " + id);
 		logger.debug("Update submit Form: " + employee.toString());
+		
+		Optional<Employee> employeeDb = employeeService.findById(id);
+
+		if(employeeDb.get()!=null) {
+			Employee employeeSaved = employeeService.updateEmployee(id, employee);
+			model.addAttribute("employee", employeeSaved);
+		}
+
 
 		return "redirect:/employee-ui/all";
 	}
