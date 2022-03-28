@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mybatis mapper configuration -->
+<mapper namespace="org.batch.integration.mybatis.xml.TransactionDao">
+    <resultMap id="employeeResult" type="org.lba.springboot2.mybatis.db.model.EmployeeModel">
+        <result property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="surname" column="SURNAME"/>
+        <result property="departmentcode" column="DEPARTMENTCODE"/>
+    </resultMap>
+
+    <select id="findAllRecord" parameterType="java.util.Map" resultMap="employeeResult">
+        SELECT * FROM EMPLOYEE
+    </select>
+</mapper>
