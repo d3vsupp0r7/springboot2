@@ -68,7 +68,7 @@ public class ManagerModel {
 
 	@Override
 	public String toString() {
-		return "EmployeeModel [id=" + id + ", name=" + name + ", surname=" + surname + ", departmentcode=" + departmentcode + "]";
+		return "ManagerModel [id=" + id + ", name=" + name + ", surname=" + surname + ", departmentcode=" + departmentcode + "]";
 	}
 	
 }
