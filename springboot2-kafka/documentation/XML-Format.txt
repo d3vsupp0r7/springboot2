@@ -1,0 +1,10 @@
+XML Podam Out: EmployeeXMLModel [id=1250921581, name=b48HtpMCsL, surname=_Dph184dxc, salary=5824350804500, dateOfBorn=Sun Apr 24 18:16:25 CEST 2022, registrationDate=2154-07-26 13:39:22.581164143]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee>
+    <id>1250921581</id>
+    <name>b48HtpMCsL</name>
+    <surname>_Dph184dxc</surname>
+    <salary>5824350804500</salary>
+    <dateOfBorn>24-04-2022</dateOfBorn>
+    <registrationDate>26-07-2154 13:39:22</registrationDate>
+</employee>
