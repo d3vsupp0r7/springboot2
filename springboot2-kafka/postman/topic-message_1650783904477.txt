@@ -1,0 +1,8 @@
+"{\"holder\":\"Tonny\",\"funds\":\"2000\"}"
+
+{holder:"Tonny",\"funds\":\"2000\"}
+
+Header
+{
+	"__TypeId__": "org.lba.springboot2.kafka.model.json.Account"
+}
