@@ -1,0 +1,10 @@
+# Employye format example 
+
+{
+  "id": 203211712,
+  "name": "zTVnEUWp9F",
+  "surname": "jwdNDJfNWV",
+  "salary": 2621909033500,
+  "dateOfBorn": "24-04-2022 17:23:03",
+  "registrationDate": "31-01-2053 04:41:19"
+}
