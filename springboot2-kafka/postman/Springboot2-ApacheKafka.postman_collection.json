@@ -8,14 +8,73 @@
 		{
 			"name": "sendJSONMessage",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"holder\": \"Tonny\",\r\n\"funds\": \"2000\"\r\n}"
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8081/api/kafka",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"kafka"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendEmployeeJSONMessage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 203211712,\r\n  \"name\": \"zTVnEUWp9F\",\r\n  \"surname\": \"jwdNDJfNWV\",\r\n  \"salary\": 2621909033500,\r\n  \"dateOfBorn\": \"24-04-2022 17:23:03\",\r\n  \"registrationDate\": \"31-01-2053 04:41:19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/kafka/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"kafka",
+						"employee"
+					]
 				}
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
