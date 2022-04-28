@@ -1,10 +1,11 @@
 package org.lba.springboot2.kafka.controller;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.lba.springboot2.kafka.model.json.EmployeeJSONModel;
 import org.lba.springboot2.kafka.model.xml.EmployeeXMLModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -27,7 +28,7 @@ public class KafkaEmployeeControllerXML {
     }
 
     @PostMapping
-    public String sentMessage(@RequestBody EmployeeXMLModel employee) {
+    public ResponseEntity sentMessage(@RequestBody EmployeeXMLModel employee) {
         this.kafkaTemplateXML.send("employee-xml-topic", 
         		new EmployeeXMLModel(
         			employee.getId(),
@@ -39,10 +40,10 @@ public class KafkaEmployeeControllerXML {
         				)
         		);
 
-        return "Hello World!";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @KafkaListener(topics = "employee-xml-topic")
+    @KafkaListener(topics = "employee-xml-topic", clientIdPrefix = "bytearray-employee-xml", containerFactory = "kafkaListenerEmployeeXMLByteArrayContainerFactory")
     public void listener(@Payload EmployeeXMLModel employee,  ConsumerRecord<String, EmployeeXMLModel> cr) {
         logger.info("Topic [employee-xml-topic] Received message from {} with {} PLN ",
         		employee.getId(),
