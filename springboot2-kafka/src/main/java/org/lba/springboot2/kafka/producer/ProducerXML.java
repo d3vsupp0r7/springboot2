@@ -18,16 +18,16 @@ import org.springframework.kafka.core.ProducerFactory;
 @Configuration
 public class ProducerXML {
 
-    final KafkaProperties kafkaProperties;
+    final KafkaProperties kafkaPropertiesXML;
 
-    public ProducerXML(KafkaProperties kafkaProperties) {
-        this.kafkaProperties = kafkaProperties;
+    public ProducerXML(KafkaProperties kafkaPropertiesXML) {
+        this.kafkaPropertiesXML = kafkaPropertiesXML;
     }
 
 
     @Bean
     public Map<String, Object> producerConfigurationXML() {
-        Map<String, Object> properties = new HashMap<>(kafkaProperties.buildProducerProperties());
+        Map<String, Object> properties = new HashMap<>(kafkaPropertiesXML.buildProducerProperties());
         properties.put(JAXBSerializerConfig.JAXB_FORMATTED_OUTPUT_CONF, "true");
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JAXBSerializer.class);
