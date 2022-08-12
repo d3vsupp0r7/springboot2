@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "48ffd76e-d56e-416e-9764-7265a3c5cbd0",
+		"name": "sprinboot-activemq-retry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "produceMessage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 4944176491200,\r\n  \"firstName\": \"OXv3gNZv1T\",\r\n  \"lastName\": \"dduYkA2s5D\",\r\n  \"code\": \"uxgvMJVTlE\",\r\n  \"dob\": \"12/08/2022\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8085/produce/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"produce",
+						"message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
