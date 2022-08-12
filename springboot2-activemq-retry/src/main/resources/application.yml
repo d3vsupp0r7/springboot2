@@ -1,0 +1,34 @@
+server:
+  port: 8085
+
+logging:
+  level:
+    root: INFO
+    org:
+      lba:
+        springboot2: DEBUG
+
+spring:
+  sql.init.mode: always
+  datasource:
+    url: jdbc:h2:mem:mydb;MODE=Oracle;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+      
+# activemq
+activemq:
+  broker:
+    url: tcp://localhost:61616
+  queue: retry-first-queue
